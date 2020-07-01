@@ -14,6 +14,16 @@ https://authing.demo.cbuilder.tech/
 
 ## 整体架构
 
+演示网站整体架构如下：
+* 通过S3进行静态网站托管
+* 演示通过Authing进行登陆认证
+* 演示访问API Gateway提供的REST API
+* 演示访问AWS Polly服务
+
+<img src="frontend/imgs/architecture.png" width=800 align=center>
+
+
+
 ### 通过OIDC Implicit Flow获取id token：
 
 关于结合Authing实现OIDC授权的相关细节，可以参考[Authing的文档](https://docs.authing.cn/authing/authentication/oidc/oidc-authorization) . 由于静态网站无法在客户端安全的存储Client Secret, 因此在这里采用Implicit Flow的方式来获取id token. 
