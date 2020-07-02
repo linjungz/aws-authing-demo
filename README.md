@@ -15,10 +15,12 @@ https://authing.demo.cbuilder.tech/
 ## 整体架构
 
 演示网站整体架构如下：
-* 通过S3进行静态网站托管
-* 演示通过Authing进行登陆认证
-* 演示访问API Gateway提供的REST API
-* 演示访问AWS Polly服务
+* 通过S3进行静态网站托管, 并利用Cloudfront进行静态内容加速和HTTPS证书挂载
+* 通过Authing进行登陆认证，做为User Pool的替代方案
+* 通过Authing认证后获取令牌：
+* * 访问API Gateway提供的REST API
+* * 通过Cognito Identity Pool获取临时AWS凭证，访问AWS资源（这里以Polly服务为例)
+
 
 <img src="frontend/imgs/architecture.png" width=800 align=center>
 
